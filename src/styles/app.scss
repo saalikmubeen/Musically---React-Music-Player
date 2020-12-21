@@ -4,5 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 @import "./Song";
 @import "./Player";
+@import "./Library";
