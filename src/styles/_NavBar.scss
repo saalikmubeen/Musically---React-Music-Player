@@ -1,0 +1,14 @@
+.navbar {
+    min-height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button {
+        background: none;
+        outline: none;
+        border: 2px solid gray;
+        padding: .5rem 1rem;
+        font-size: large;
+        cursor: pointer;
+    }
+}

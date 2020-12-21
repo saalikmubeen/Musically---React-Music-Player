@@ -4,6 +4,7 @@ import './styles/app.scss';
 import Song from './components/Song';
 import Player from './components/Player';
 import Library from './components/Library';
+import NavBar from './components/NavBar';
 
 function App() {
   const audioRef = useRef(null)
@@ -16,6 +17,7 @@ function App() {
   
   return (
         <>
+        <NavBar/>
         <Library audioRef={ audioRef}/>
         <Song />
         <Player audioRef={audioRef} time={time} setTime={setTime} handleTimeUpdate={handleTimeUpdate} />

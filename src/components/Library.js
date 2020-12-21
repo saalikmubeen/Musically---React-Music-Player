@@ -4,9 +4,9 @@ import { AppContext } from '../contexts/AppContext';
 
 
 const Library = ({ audioRef }) => {
-    const { songs } = useContext(AppContext);
+    const { songs, isVisible } = useContext(AppContext);
     return (
-        <div className="library">
+        <div className={`library ${isVisible && "show-library"}`}>
             <h1>Library</h1>
             <div className="library-songs">
                 {songs.map((song) => <LibrarySong song={song} key={song.id} audioRef={ audioRef }/>)}

@@ -7,9 +7,10 @@ const AppContext = createContext();
 const AppProvider = (props) => {
     const [songs, setSongs] = useState(data());
     const [currentSong, setCurrentSong] = useState(songs[0]);
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isVisible, setIsVisible] = useState(false)
     return (
-        <AppContext.Provider value={{ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying }}>
+        <AppContext.Provider value={{ songs, setSongs, currentSong, setCurrentSong, isPlaying, setIsPlaying, isVisible, setIsVisible }}>
             {props.children}
         </AppContext.Provider>
     )

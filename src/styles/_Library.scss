@@ -6,6 +6,9 @@
     height: 100vh;
     overflow: scroll;
     overflow-x: hidden;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all .5s ease;
     h1 {
         padding: 1rem;
         padding-top: 1rem;
@@ -36,4 +39,9 @@
 
 .active-song {
     background-color: lightblue;
+}
+
+.show-library {
+    transform: translateX(0);
+    opacity: 1;
 }
