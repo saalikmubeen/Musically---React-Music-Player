@@ -5,10 +5,26 @@
     align-items: center;
     justify-content: center;
     img {
-        width: 30%;
+        width: 20%;
         border-radius: 50%;
     }
     h1 {
         margin: 2rem 0 1rem 0;
     }
+}
+
+@keyframes rotate-image {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-cover {
+    animation-name: rotate-image;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
 }
