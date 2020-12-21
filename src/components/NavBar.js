@@ -10,7 +10,7 @@ const NavBar = () => {
             <h1>Waves</h1>
             <button onClick={() => setIsVisible(!isVisible)}>
                 Library
-                <FontAwesomeIcon icon={ faMusic } size="2x"/>
+                <FontAwesomeIcon icon={ faMusic } />
             </button>
         </nav>
     )

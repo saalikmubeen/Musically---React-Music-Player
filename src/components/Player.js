@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AppContext } from '../contexts/AppContext';
@@ -28,31 +28,13 @@ function Player({ audioRef, time, setTime }) {
         
         if (songs.length === currentIndex + 1) {
                 setCurrentSong(songs[0])
-                
-                const updatedSongs = songs.map((song, idx) => {
-                    if (idx === 0) {
-                        return {...song, active: true}
-                    } else {
-                        return {...song, active: false}
-                    }
-                })
-
-                setSongs(updatedSongs)
         } else {
                 setCurrentSong(songs[currentIndex + 1])
-
-                const updatedSongs = songs.map((song) => {
-                if (song.id === songs[currentIndex + 1].id) {
-                    return {...song, active: true}
-                } else {
-                    return {...song, active: false}
-                }
-                })
-
-                setSongs(updatedSongs)
         }
             
-        audioRef.current.play().then(() => audioRef.current.play())
+        if (isPlaying) {
+            audioRef.current.play().then(() => audioRef.current.play())
+        }
         
     }
 
@@ -62,34 +44,26 @@ function Player({ audioRef, time, setTime }) {
         
         if (currentIndex === 0) {
                 setCurrentSong(songs[songs.length - 1])
-                
-                const updatedSongs = songs.map((song, idx) => {
-                    if (idx === songs.length - 1) {
-                        return {...song, active: true}
-                    } else {
-                        return {...song, active: false}
-                    }
-                })
-
-                setSongs(updatedSongs)
         } else {
                 setCurrentSong(songs[currentIndex - 1])
-
-                const updatedSongs = songs.map((song) => {
-                if (song.id === songs[currentIndex - 1].id) {
-                    return {...song, active: true}
-                } else {
-                    return {...song, active: false}
-                }
-                })
-
-                setSongs(updatedSongs)
         }
             
-        audioRef.current.play().then(() => audioRef.current.play())
+        if (isPlaying) {
+            audioRef.current.play().then(() => audioRef.current.play())
+        }
         
     }
 
+    useEffect(() => {
+        const updatedSongs = songs.map((song) => {
+            if (song.id === currentSong.id) {
+                return { ...song, active: true }
+            } else {
+                return { ...song, active: false }
+            }
+        });
+        setSongs(updatedSongs)
+    }, [currentSong])
 
     return (
         <div className="player-container">

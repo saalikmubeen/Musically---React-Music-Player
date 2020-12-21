@@ -4,11 +4,15 @@
     justify-content: space-around;
     align-items: center;
     button {
-        background: none;
+        background: transparent;
         outline: none;
-        border: 2px solid gray;
-        padding: .5rem 1rem;
-        font-size: large;
+        border: 2px solid rgb(65, 65, 65);
+        padding: .5rem;
+        transition: all 0.3s ease;
         cursor: pointer;
+        &:hover {
+            background: rgb(65, 65, 65);
+            color: white
+        }
     }
 }
