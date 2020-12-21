@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../contexts/AppContext';
 
+function LibrarySong({ song, audioRef }) {
+    const { setSongs, songs, setCurrentSong } = useContext(AppContext);
+    const handleClick = () => {
+        const updatedSongs = songs.map((individualSong) => {
+            if (song.id === individualSong.id) {
+                return {...individualSong, active: true}
+            } else {
+                return {...individualSong, active: false}
+            }
+        })
 
-function LibrarySong({ song }) {
+        setSongs(updatedSongs)
+        setCurrentSong(song)
+        audioRef.current.play();
+    }
+
     return (
-        <div className={`library-song ${song.active && "active-song"}`}>
+        <div className={`library-song ${song.active && "active-song"}`} onClick={handleClick}>
             <img src={song.cover} alt={ song.name }/>
             <div className="library-song--info">
                 <h4>{ song.name }</h4>

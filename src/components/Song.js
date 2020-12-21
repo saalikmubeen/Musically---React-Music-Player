@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../contexts/AppContext';
 
 
-function Song({ currentSong }) {
+function Song() {
+    const { currentSong } = useContext(AppContext)
     return (
         <div className="song-container">
             <img src={currentSong.cover} alt={ currentSong.name }/>

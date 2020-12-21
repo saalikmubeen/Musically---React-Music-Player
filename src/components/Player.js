@@ -1,19 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { AppContext } from '../contexts/AppContext';
 
 
-function Player({ currentSong, isPlaying, setIsPlaying }) {
-    const audioRef = useRef(null);
-    const [time, setTime] = useState({ currentTime: 0, duration: 0 })
+function Player({ audioRef, time, setTime, handleTimeUpdate }) {
+    const { isPlaying, setIsPlaying } = useContext(AppContext);
 
     const handlePlayBtnClick = () => {
         isPlaying ? audioRef.current.pause() : audioRef.current.play();
         setIsPlaying(!isPlaying)
-    }
-
-    const handleTimeUpdate = (e) => {
-        setTime({ currentTime: e.target.currentTime, duration: e.target.duration })
     }
 
     const handleSliderChange = (e) => {
@@ -43,8 +39,7 @@ function Player({ currentSong, isPlaying, setIsPlaying }) {
                 <FontAwesomeIcon icon={ faAngleRight } size="2x"/>
             </div>
 
-            <audio ref={audioRef} src={currentSong.audio} onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleTimeUpdate}></audio>
-         </div>
+        </div>
     )
 }
 
