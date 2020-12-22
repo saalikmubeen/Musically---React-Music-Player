@@ -5,15 +5,15 @@ function LibrarySong({ song, audioRef }) {
     const { setSongs, songs, setCurrentSong, isPlaying } = useContext(AppContext);
 
     const handleClick = async () => {
-        const updatedSongs = songs.map((individualSong) => {
-            if (song.id === individualSong.id) {
-                return {...individualSong, active: true}
-            } else {
-                return {...individualSong, active: false}
-            }
-        })
+        // const updatedSongs = songs.map((individualSong) => {
+        //     if (song.id === individualSong.id) {
+        //         return {...individualSong, active: true}
+        //     } else {
+        //         return {...individualSong, active: false}
+        //     }
+        // })
 
-        await setSongs(updatedSongs)
+        // await setSongs(updatedSongs)
         await setCurrentSong(song)
         if (isPlaying) audioRef.current.play();
     }

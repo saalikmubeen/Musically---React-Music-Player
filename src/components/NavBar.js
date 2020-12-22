@@ -7,7 +7,7 @@ const NavBar = () => {
     const { isVisible, setIsVisible } = useContext(AppContext);
     return (
         <nav className="navbar">
-            <h1>Waves</h1>
+            <h1>Musically</h1>
             <button onClick={() => setIsVisible(!isVisible)}>
                 Library
                 <FontAwesomeIcon icon={ faMusic } />

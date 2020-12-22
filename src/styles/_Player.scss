@@ -43,6 +43,9 @@
         }
         .player-control {
             width: 70%;
+            svg {
+                font-size: 25px;
+            }
         }
         .player-container {
             justify-content: space-evenly;
