@@ -8,11 +8,12 @@ import NavBar from './components/NavBar';
 
 function App() {
       const audioRef = useRef(null)
-      const [time, setTime] = useState({ currentTime: 0, duration: 0 })
+      const [time, setTime] = useState({ currentTime: 0, duration: 0, finishedPercentage: 0 })
       const { currentSong, songs, isPlaying, setCurrentSong, isVisible } = useContext(AppContext);
 
       const handleTimeUpdate = (e) => {
-            setTime({ currentTime: e.target.currentTime, duration: e.target.duration })
+            const percent = Math.round((e.target.currentTime / e.target.duration) * 100)
+            setTime({ currentTime: e.target.currentTime, duration: e.target.duration, finishedPercentage: percent })
       }
       
       const skipSong = async () => {

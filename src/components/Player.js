@@ -65,8 +65,13 @@ function Player({ audioRef, time, setTime }) {
         <div className="player-container">
 
             <div className="song-control">
-                <p>{ getTime(time.currentTime) }</p>
-                <input type="range" min={0} max={time.duration || 0} value={time.currentTime} onChange={ handleSliderChange }/>
+                <p>{getTime(time.currentTime)}</p>
+
+                <div className="track" style={{ background: `linear-gradient(to right , ${currentSong.color[0]}, ${currentSong.color[1]})` }}>
+                    <input type="range" min={0} max={time.duration || 0} value={time.currentTime} onChange={handleSliderChange} />
+                    <div className="animate-track" style={{transform: `translateX(${time.finishedPercentage}%)`}}></div>
+                </div>
+
                 <p>{ getTime(time.duration) }</p>
             </div>
             
