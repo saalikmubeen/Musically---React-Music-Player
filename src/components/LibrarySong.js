@@ -3,7 +3,8 @@ import { AppContext } from '../contexts/AppContext';
 
 function LibrarySong({ song, audioRef }) {
     const { setSongs, songs, setCurrentSong, isPlaying } = useContext(AppContext);
-    const handleClick = () => {
+
+    const handleClick = async () => {
         const updatedSongs = songs.map((individualSong) => {
             if (song.id === individualSong.id) {
                 return {...individualSong, active: true}
@@ -12,11 +13,9 @@ function LibrarySong({ song, audioRef }) {
             }
         })
 
-        setSongs(updatedSongs)
-        setCurrentSong(song)
-        if (isPlaying) {
-            audioRef.current.play().then((audio) => audioRef.current.play())
-        }
+        await setSongs(updatedSongs)
+        await setCurrentSong(song)
+        if (isPlaying) audioRef.current.play();
     }
 
     return (
