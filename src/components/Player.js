@@ -50,17 +50,6 @@ function Player({ audioRef, time, setTime }) {
         
     }
 
-    useEffect(() => {
-        const updatedSongs = songs.map((song) => {
-            if (song.id === currentSong.id) {
-                return { ...song, active: true }
-            } else {
-                return { ...song, active: false }
-            }
-        });
-        setSongs(updatedSongs)
-    }, [currentSong])
-
     return (
         <div className="player-container">
 
