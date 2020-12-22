@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* The emerging W3C standard
+   that is currently Firefox-only */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
+    }
+    /* Works on Chrome/Edge/Safari */
     *::-webkit-scrollbar {
         width: 5px;
     }
@@ -17,6 +24,40 @@
 
 body {
     font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-size: 1rem;
+}
+
+h2 {
+    color: rgb(51, 51, 51);
+}
+
+h3,
+h4 {
+    color: rgb(100, 100, 100);
+    font-weight: 400;
+}
+
+.App {
+    transition: all .3s ease;
+}
+
+.app-push {
+    margin-left: 10%;
+}
+
+@media screen and (max-width: 1200px) {
+    .app-push {
+        margin-left: 20%
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .app-push {
+        margin-left: 30%
+    }
 }
 
 @import "./Song";

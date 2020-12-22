@@ -4,6 +4,7 @@
     left: 0;
     width: 20rem;
     height: 100vh;
+    background-color: whitesmoke;
     overflow: scroll;
     overflow-x: hidden;
     box-shadow: 2px 2px 50px rgb(204, 204, 204);
@@ -36,6 +37,12 @@
         justify-content: center;
         padding-left: 1.5rem;
         font-size: 13px;
+        h3 {
+            font-size: 1rem;
+        }
+        h4 {
+            font-size: 0.7rem;
+        }
     }
     &:hover {
         background-color: rgb(222, 222, 255);
@@ -49,4 +56,13 @@
 .show-library {
     transform: translateX(0);
     opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .library {
+        width: 100%;
+    }
+    .library-song--info {
+        padding-left: 2.5rem;
+    }
 }

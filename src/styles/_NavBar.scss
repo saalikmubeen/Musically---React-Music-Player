@@ -10,6 +10,7 @@
         padding: .5rem;
         transition: all 0.3s ease;
         cursor: pointer;
+        z-index: 2;
         &:hover {
             background: rgb(65, 65, 65);
             color: white
