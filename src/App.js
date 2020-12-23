@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState } from "react";
 import { AppContext } from './contexts/AppContext'; 
-import './styles/App.scss';
+import './styles/app.scss';
 import Song from './components/Song';
 import Player from './components/Player';
 import Library from './components/Library';
