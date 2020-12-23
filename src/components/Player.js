@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { AppContext } from '../contexts/AppContext';
 
 
 function Player({ audioRef, time, setTime }) {
-    const { isPlaying, setIsPlaying, songs, setSongs, currentSong, setCurrentSong } = useContext(AppContext);
+    const { isPlaying, setIsPlaying, songs, currentSong, setCurrentSong } = useContext(AppContext);
 
     const handlePlayBtnClick = () => {
         isPlaying ? audioRef.current.pause() : audioRef.current.play();
